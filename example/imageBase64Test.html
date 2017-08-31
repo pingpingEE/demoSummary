@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>测试危桥改造图片是否可行</title>
+  <script src="../public/jquery/jquery.js" type="text/javascript"></script>
+</head>
+<body>
+<div>
+  <img id="image" src="" width="494" height="370"/>
+</div>
+<script>
+  // 目的：为了确认在项目中 该操作可以正常进行
+  // http://36.2.11.57:8089/jhsjgx/api/queryJckQlzpNr?id=28411563BF404BFB923862C73C46018E
+  $.ajax({
+    type: "GET",
+    url: "http://36.2.11.57:8089/jhsjgx/api/queryJckQlzpNr?id=57A772602B5B4B6AAE6E9E6670DA62A9",
+    success: function (response) {
+      var res = response.data[0].filedata
+      $('#image').attr('src', 'data:image/png;base64,' + res)
+    }
+  });
+</script>
+</body>
+</html>
